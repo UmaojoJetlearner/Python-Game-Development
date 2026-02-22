@@ -37,3 +37,5 @@ def on_mouse_down(pos):
        score=score-1
 
 pgzrun.go()
+
+

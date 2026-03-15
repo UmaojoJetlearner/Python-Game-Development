@@ -1,7 +1,7 @@
 import random
 import pgzrun
 
-TITLE="Get the flower"
+TITLE="Get the star"
 
 WIDTH=500
 HEIGHT=500
@@ -10,17 +10,17 @@ score=0
 
 gameover=False
 
-bee=Actor("beeimage")
-flower=Actor("flowerimage")
+spaceship=Actor("spaceship")
+star=Actor("glowingstar")
 
-bee.pos=250,250
+spaceship.pos=250,250
 def moveflower(): 
-    flower.pos=random.randint(50,WIDTH-50),random.randint(50,HEIGHT-50)
+    star.pos=random.randint(50,WIDTH-50),random.randint(50,HEIGHT-50)
 
 def draw():
-    screen.blit("grassimage",(0,0))
-    bee.draw()    
-    flower.draw()
+    screen.blit("spaceimage",(0,0))
+    spaceship.draw()    
+    star.draw()
     screen.draw.text("Score:"+str(score),center=(70,30),fontsize=50)
     if gameover:
         screen.fill("red")
@@ -29,18 +29,18 @@ def draw():
 def update():
     global score
     if keyboard.left:
-        bee.x-=2
+        spaceship.x-=2
 
     if keyboard.right:
-        bee.x+=2
+        spaceship.x+=2
 
     if keyboard.up:
-        bee.y-=2
+        spaceship.y-=2
 
     if keyboard.down:
-        bee.y+=2
+        spaceship.y+=2
 
-    if bee.colliderect(flower):
+    if spaceship.colliderect(star):
         moveflower()
         score+=10
 def timeup():
